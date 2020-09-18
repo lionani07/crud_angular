@@ -1,0 +1,25 @@
+<mat-drawer-container class="drawer-container mat-elevation-z4">
+
+    <mat-drawer mode="side" opened class="drawer-side">
+        <mat-list>
+            <div mat-subheader>Menú</div>            
+            <mat-list-item class="nav-item"> 
+                <a routerLink="/">
+                    <mat-icon mat-list-icon>home</mat-icon>  Inicio  
+                </a>
+            </mat-list-item>
+            <mat-list-item class="nav-item">
+                <a routerLink="/products">
+                    <mat-icon mat-list-icon>home</mat-icon>  Produtos    
+                </a> 
+            </mat-list-item>                      
+          </mat-list>
+    </mat-drawer>
+
+    <mat-drawer-content class="drawer-content">
+          <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+</mat-drawer-container>
+
+  

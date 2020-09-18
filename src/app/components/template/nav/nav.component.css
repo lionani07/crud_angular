@@ -1,0 +1,20 @@
+.drawer-container { 
+  margin: 10px;  
+}
+
+
+.drawer-side {  
+    width: 200px;
+    height: 500px; 
+    background-color: #3F51B5;
+}
+
+.drawer-content {
+  height: 500px;    
+  padding: 16px;
+}
+
+.nav-item a {
+  color: #FFF;
+  text-decoration: none; 
+}
