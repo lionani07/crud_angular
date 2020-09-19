@@ -24,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { MatInputModule } from '@angular/material/input';
     ProductCrudComponent,
     RedDirective,
     ForDirective,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
     
   ],
   providers: [],

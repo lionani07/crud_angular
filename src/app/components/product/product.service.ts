@@ -28,4 +28,8 @@ export class ProductService {
     return this.httpClient.post<Product>(this.URL_BASE, product);   
   }
 
+  getProducts(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.URL_BASE);
+  }
+
 }
