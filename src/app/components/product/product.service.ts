@@ -37,11 +37,9 @@ export class ProductService {
     return this.httpClient.get<Product>(url);
   }
 
-  updateProduc(product: Product): Observable<Product> {
+  updateProduct(product: Product): Observable<Product> {
     const url = `${this.URL_BASE}/${product.id}`;
     return this.httpClient.put<Product>(url, product);
   }
-
-
 
 }
