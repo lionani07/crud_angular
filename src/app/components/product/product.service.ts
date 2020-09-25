@@ -32,14 +32,20 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.URL_BASE);
   }
 
-  findById(id: string): Observable<Product> {
-    const url = `${this.URL_BASE}/${id}`;
-    return this.httpClient.get<Product>(url);
+  findById(id: number): Observable<Product> {    
+    return this.httpClient.get<Product>(this.createUrlBy(id));
   }
 
-  updateProduct(product: Product): Observable<Product> {
-    const url = `${this.URL_BASE}/${product.id}`;
-    return this.httpClient.put<Product>(url, product);
+  update(product: Product): Observable<Product> {   
+    return this.httpClient.put<Product>(this.createUrlBy(product.id), product);
+  }
+
+  delete(id: number): Observable<Product> {    
+    return this.httpClient.delete<Product>(this.createUrlBy(id));
+  }
+
+  createUrlBy(id: number): string {
+    return `${this.URL_BASE}/${id}`;
   }
 
 }

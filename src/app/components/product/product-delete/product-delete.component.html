@@ -1,0 +1,21 @@
+<mat-card>
+
+    <mat-card-title>Delete product</mat-card-title>
+    
+    <form>
+        <mat-form-field>
+            <input type="text" disabled [value]="product.name" name="name" matInput placeholder="Name">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input type="number" disabled [value]="product.price" name="price" matInput placeholder="Price (R$)">
+        </mat-form-field>
+        
+    </form>
+    <button mat-raised-button color="warn" (click) = "deleteProduct()">
+        <mat-icon>save</mat-icon> Delete
+    </button>
+    <button mat-raised-button (click) = "cancel()">
+        <mat-icon>cancel</mat-icon> Cancel
+    </button>
+</mat-card>
