@@ -5,3 +5,12 @@ table {
   tr.mat-footer-row {
     font-weight: bold;
   }
+
+  .edit{
+    margin-right: 10px;
+    color: chocolate;
+  }
+
+  .delete{
+    color: red;
+  }
