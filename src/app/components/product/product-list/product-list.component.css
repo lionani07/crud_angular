@@ -1,16 +1,16 @@
 table {
     width: 100%;
+  }  
+
+  .columnHeader {    
+    font-size: 1rem;
   }
   
-  tr.mat-footer-row {
-    font-weight: bold;
-  }
-
-  .edit{
+  .edit > i{
     margin-right: 10px;
     color: chocolate;
   }
 
-  .delete{
+  .delete > i{
     color: red;
   }

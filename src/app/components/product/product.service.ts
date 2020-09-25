@@ -32,4 +32,16 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.URL_BASE);
   }
 
+  findById(id: string): Observable<Product> {
+    const url = `${this.URL_BASE}/${id}`;
+    return this.httpClient.get<Product>(url);
+  }
+
+  updateProduc(product: Product): Observable<Product> {
+    const url = `${this.URL_BASE}/${product.id}`;
+    return this.httpClient.put<Product>(url, product);
+  }
+
+
+
 }
