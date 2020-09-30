@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Product } from '../product/product.model'
-import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { Observable, EMPTY } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +17,27 @@ export class ProductService {
     private httpClient: HttpClient
     ) { }
 
-  showMessage(msg: string = "default"): void {
+  showMessage(msg: string, isError = false): void {
     this.snackBar.open(msg, "[close]", {
       duration: 3000,
       horizontalPosition: "right",
-      verticalPosition: "top"
+      verticalPosition: "top",
+      panelClass: isError ? ["msg-error"] : ["msg-success"]
     })
   }
 
   createProduct(product: Product): Observable<Product> {
-    return this.httpClient.post<Product>(this.URL_BASE, product);   
+    return this.httpClient.post<Product>(this.URL_BASE, product).pipe(
+      map(obj => obj),
+      catchError(e=> this.handlerError(e))
+    );   
   }
 
   getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.URL_BASE);
+    return this.httpClient.get<Product[]>(this.URL_BASE).pipe(
+      map(obj=> obj),
+      catchError(e => this.handlerError(e))
+    );
   }
 
   findById(id: number): Observable<Product> {    
@@ -46,6 +54,11 @@ export class ProductService {
 
   createUrlBy(id: number): string {
     return `${this.URL_BASE}/${id}`;
+  }
+
+  handlerError(e: any): Observable<any> {
+    this.showMessage(e.message, true);
+    return EMPTY;
   }
 
 }

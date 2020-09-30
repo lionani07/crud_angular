@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class ProductCreateComponent implements OnInit {
 
-  product: Product = {
-    name: "",
+  product: Product = { 
+    id: null,   
+    name: null,
     price: 0
   };
 
